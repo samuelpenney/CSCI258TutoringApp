@@ -1,0 +1,75 @@
+# ==========================================
+# Python Byte-Compiled / Cache Files
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================================
+# Django Specific Files & Directories
+# ==========================================
+# Local settings containing raw credentials or developer overrides
+local_settings.py
+local_settings.local
+
+# Default SQLite database file used for local development
+*.sqlite3
+*.db
+
+# User-uploaded files (User media) and collected static assets
+media/
+staticfiles/
+
+# Django debug toolbar or logging files
+*.log
+pip-log.txt
+
+# ==========================================
+# Virtual Environments & Packages
+# ==========================================
+# Keeps actual env folders out of GitHub; track dependencies via requirements.txt instead
+.venv/
+venv/
+env/
+ENV/
+lib/
+lib64/
+
+# ==========================================
+# Environments and Secrets
+# ==========================================
+# Never commit credentials, secret keys, or API tokens
+.env
+.flaskenv
+*.env.local
+
+# ==========================================
+# Testing, Coverage, and Linting
+# ==========================================
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+.mypy_cache/
+
+# ==========================================
+# OS & Editor Specific Files
+# ==========================================
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+
+# IDEs (VS Code, PyCharm, IntelliJ)
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
