@@ -1,17 +1,20 @@
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
+from django.utils import timezone
 
 # Create your models here.
 class Post(models.Model):
-    title = models.CharField(max_length=200)
-    author = models.ForeignKey(
+    Class = models.CharField(max_length=200)
+    TA = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
-    body = models.TextField()
+    Date = models.DateTimeField(default=timezone.now)
+    
+    
     def __str__(self):
-        return self.title
+        return self.Class
 
     def get_absolute_url(self):
         return reverse("post_detail", kwargs={"pk": self.pk})

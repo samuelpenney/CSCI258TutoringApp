@@ -1,13 +1,13 @@
 {% load static %}
 <html>
     <head>
-        <title>Django Blog</title>
+        <title>Tutor App</title>
         <link rel="stylesheet" href="{% static 'css/base.css' %}">
     </head>
     <body>
         <header>
-            <h1><a href="/">Django Blog</a></h1>
-            <a href="{%url 'post_new' %}">+ New Blog Post</a>
+            <h1><a href="/">Tutor App</a></h1>
+            <a href="{%url 'time_add' %}">Create New Session</a>
         </header>
         {% block content %} {% endblock content %}
     </body>

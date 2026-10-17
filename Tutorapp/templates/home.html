@@ -13,9 +13,9 @@
     {% endif %} 
     {% for post in post_list %}
         <div class="post-entry">
-        <h2><a href="{{post.get_absolute_url}}">{{ post.title }}</a></h2>
-        <p>Author: {{ post.author }}</p>
-        <p>{{ post.body }}</p>
+        <h2><a href="{{post.get_absolute_url}}">{{ post.Class }}</a></h2>
+        <p>Author: {{ post.TA }}</p>
+        <p>{{ post.Date }}</p>
         </div>
     {% endfor %}
 {%endblock content%}
