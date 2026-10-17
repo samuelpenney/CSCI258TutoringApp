@@ -1,8 +1,9 @@
 #from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Post
+from .models import Post, Course
 
 class BlogListView(ListView):
     model = Post
@@ -12,10 +13,20 @@ class BlogDetailView(DetailView):
     model = Post
     template_name = "post_detail.html"
 
-class TimeCreateView(CreateView):
+#you have to be logged in to be able to create times
+class TimeCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "time_add.html"
     fields = ["Class", "TA", "Date"]
+
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class)
+        subject = self.request.user.subject
+        form.fields["Class"].choices = [
+            (value, label) for value, label in Course.choices
+            if value.startswith(subject)
+        ]
+        return form
 
 class BlogUpdateView(UpdateView):
     model = Post
@@ -27,8 +38,6 @@ class BlogDeleteView(DeleteView):
     template_name = "post_delete.html"
     success_url = reverse_lazy("home")
 
-
-    
 # def post_list(request):
 #    posts = Post.objects.all()
 #    return render(request, 'home.html', {'posts': posts})
