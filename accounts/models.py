@@ -8,4 +8,4 @@ class Subjects(models.TextChoices):
     ART = "Arts"
 class CustomUser(AbstractUser): 
     age = models.PositiveIntegerField(null=True, blank=True)
-    course = models.CharField(choices=Subjects.choices, blank=True)
+    subject = models.CharField(choices=Subjects.choices, blank=True)
