@@ -21,9 +21,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="list-style: none;"></ul>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="list-style: none;">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                            <a class="nav-link active fw-semibold text-primary" aria-current="page" href="{% url 'home' %}">Home</a>
                         </li>
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'time_add' %}" class="nav-link px-2 link-dark">Create New Session</a></li>
@@ -59,7 +59,7 @@
                     </div>
                     {% endif %}
                 </div>
-            </zdiv>
+            </div>
         </nav>
         <main>
         {% block content %} {% endblock content %}
