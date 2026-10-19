@@ -10,6 +10,7 @@ class Post(models.Model):
     TA = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
+        limit_choices_to={"is_ta": True},
     )
     Date = models.DateTimeField(default=timezone.now)
         

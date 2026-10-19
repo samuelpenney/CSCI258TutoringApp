@@ -9,6 +9,7 @@ class Courses(models.TextChoices):
 
 class CustomUser(AbstractUser): 
     courses = models.JSONField(default=list, blank=True)
+    is_ta = models.BooleanField(default=True)
 
     def course_names(self):
         return [Courses(c).label for c in self.courses]

@@ -10,3 +10,16 @@
 
 4. Database for hours, days and tutors
 
+# RN
+
+1. Revert sections
+
+1. Tutor page
+
+2. Signup direct to logged in
+
+3. Date time replacement
+
+4. CSS
+
+4. Django crsipy forms
