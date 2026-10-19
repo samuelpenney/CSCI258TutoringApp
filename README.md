@@ -12,11 +12,11 @@
 
 # RN
 
-1. Revert sections
+~~1. Revert subjects~~
 
-1. Tutor page
+~~1. Tutor page / Show all courses~~
 
-2. Signup direct to logged in
+~~2. Signup direct to logged in~~
 
 3. Date time replacement
 

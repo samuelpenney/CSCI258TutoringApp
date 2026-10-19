@@ -25,7 +25,11 @@ class BlogDetailView(DetailView):
 class TimeCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "time_add.html"
-    fields = ["Class", "TA", "Date"]
+    fields = ["Class", "Date"]
+
+    def form_valid(self, form):
+        form.instance.TA = self.request.user
+        return super().form_valid(form)
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
