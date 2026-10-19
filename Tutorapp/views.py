@@ -49,6 +49,12 @@ def post_list(request):
     posts = Post.objects.all()
     return render(request, 'home.html', {'posts': posts})
 
+class TutorsPageView(DetailView):
+    model = get_user_model()
+    template_name = "tutors.html"
+    context_object_name = "ta"
+
+
 # def post_detail(request, pk):
 #     post = get_object_or_404(Post, pk=pk)
 #     return render(request, "post_detail.html", {"post": post})

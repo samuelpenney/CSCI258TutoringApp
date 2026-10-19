@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ ta.username }}</h1>
+{% for post in ta.post_set.all %}
+    <div class="post-entry">
+        <h2><a href="{{post.get_absolute_url}}">{{ post.Class }}</a></h2>
+        <p>{{ post.Date }}</p>
+    </div>
+{% empty %}
+    <p>This tutor has no posts yet.</p>
+{% endfor %}
+{% endblock content %}

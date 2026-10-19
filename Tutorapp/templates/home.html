@@ -19,7 +19,7 @@
     <h3>Tutors</h3>
     <ul>
     {% for ta in tas %}
-        <li>{{ ta.username }}</li>
+        <li><a href="{% url 'tutor_detail' ta.pk %}">{{ ta.username }}</a></li>
     {% empty %}
         <li>No TAs yet</li>
     {% endfor %}
