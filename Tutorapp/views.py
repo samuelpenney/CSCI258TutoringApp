@@ -3,7 +3,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Post, Course
+from .models import Post
+from accounts.models import Courses
 
 class BlogListView(ListView):
     model = Post
@@ -21,10 +22,9 @@ class TimeCreateView(LoginRequiredMixin, CreateView):
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
-        subject = self.request.user.subject
         form.fields["Class"].choices = [
-            (value, label) for value, label in Course.choices
-            if value.startswith(subject)
+            (value, label) for value, label in Courses.choices
+            if value in self.request.user.courses
         ]
         return form
 

@@ -2,9 +2,13 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models 
 
-class Subjects(models.TextChoices):
-    CSCI = "CSCI", "Computer Science"
-    MATH = "MATH", "Mathematics"
-    ART = "ART", "Arts"
+class Courses(models.TextChoices):
+    CSCI_150 = "CSCI150", "CSCI150 - Introduction to Computer Science"
+    CSCI_151 = "CSCI151", "CSCI151 - Interdisciplinary I"
+    CSCI_232 = "CSCI232", "CSCI232 - Intermediate Data Structures & Alogrithms"
+
 class CustomUser(AbstractUser): 
-    subject = models.CharField(choices=Subjects.choices, blank=True)
+    courses = models.JSONField(default=list, blank=True)
+
+    def course_names(self):
+        return [Courses(c).label for c in self.courses]
