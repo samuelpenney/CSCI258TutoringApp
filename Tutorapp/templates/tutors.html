@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>{{ ta.username }}</h1>
+<h2>Classes Offered</h2>
+{% for course in ta.course_names %}
+    <p>{{ course }}</p>
+{% empty %}
+    <p>This tutor has no posts yet.</p>
+{% endfor %}
+<h2>Current Sessions</h2>
 {% for post in ta.post_set.all %}
     <div class="post-entry">
         <h2><a href="{{post.get_absolute_url}}">{{ post.Class }}</a></h2>
