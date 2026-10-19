@@ -6,8 +6,7 @@
 
 ~~2. Signup direct to logged in~~
 
-
-3. Date time replacement
+~~3. Date time replacement~~
 
 4. CSS
 
