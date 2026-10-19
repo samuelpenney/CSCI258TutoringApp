@@ -1,9 +1,18 @@
+import datetime
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
 from django.utils import timezone
 from accounts.models import Courses
-# Create your models here.
+
+class Weekday(models.IntegerChoices):
+    MONDAY = 0, "Monday"
+    TUESDAY = 1, "Tuesday"
+    WEDNESDAY = 2, "Wednesday"
+    THURSDAY = 3, "Thursday"
+    FRIDAY = 4, "Friday"
+    SATURDAY = 5, "Saturday"
+    SUNDAY = 6, "Sunday"
 
 class Post(models.Model):
     Class = models.CharField(max_length=200, choices=Courses.choices)
@@ -12,7 +21,9 @@ class Post(models.Model):
         on_delete=models.CASCADE,
         limit_choices_to={"is_ta": True},
     )
-    Date = models.DateTimeField(default=timezone.now)
+    Date = models.DateField(default=timezone.localdate)
+    Day = models.IntegerField(choices=Weekday.choices, default=Weekday.MONDAY)
+    Time = models.TimeField(default=datetime.time(12, 0))
         
     def __str__(self):
         return self.Class

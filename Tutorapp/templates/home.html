@@ -13,7 +13,7 @@
         <div class="post-entry">
         <h2><a href="{{post.get_absolute_url}}">{{ post.Class }}</a></h2>
         <p>TA: {{ post.TA }}</p>
-        <p>{{ post.Date }}</p>
+        <p>{{ post.Date }} ({{ post.get_Day_display }}) at {{ post.Time|time:"g:i A" }}</p>
         </div>
     {% endfor %}
     <h3>Tutors</h3>

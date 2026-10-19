@@ -7,6 +7,8 @@ class PostAdmin(admin.ModelAdmin):
         "Class",
         "TA",
         "Date",
+        "Day",
+        "Time",
     )
 
 

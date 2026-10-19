@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Post
+from .forms import PostForm
 from accounts.models import Courses
 from django.shortcuts import render
 
@@ -25,7 +26,7 @@ class BlogDetailView(DetailView):
 class TimeCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = "time_add.html"
-    fields = ["Class", "Date"]
+    form_class = PostForm
 
     def form_valid(self, form):
         form.instance.TA = self.request.user
@@ -42,7 +43,7 @@ class TimeCreateView(LoginRequiredMixin, CreateView):
 class BlogUpdateView(UpdateView):
     model = Post
     template_name = "post_edit.html"
-    fields = ["Class", "Date"]
+    form_class = PostForm
 
 class BlogDeleteView(DeleteView):
     model = Post
