@@ -8,7 +8,8 @@ class PostAdmin(admin.ModelAdmin):
         "TA",
         "Date",
         "Day",
-        "Time",
+        "TimeStart",
+        "TimeEnd"
     )
 
 

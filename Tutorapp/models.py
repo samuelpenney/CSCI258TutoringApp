@@ -23,7 +23,8 @@ class Post(models.Model):
     )
     Date = models.DateField(default=timezone.localdate)
     Day = models.IntegerField(choices=Weekday.choices, editable=False)
-    Time = models.TimeField(default=datetime.time(12, 0))
+    TimeStart = models.TimeField(default=datetime.time(12, 0))
+    TimeEnd = models.TimeField(default=datetime.time(12, 0))
         
     def __str__(self):
         return self.Class

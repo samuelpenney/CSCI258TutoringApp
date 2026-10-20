@@ -12,7 +12,7 @@
             <div class="card-body">
                 <h4 class="card-title"><a href="{{post.get_absolute_url}}">{{ post.Class }}</a></h4>
                 <p class="card-text">TA: {{ post.TA }}</p>
-                <p class="card-text text-muted">{{ post.Date }} ({{ post.get_Day_display }}) at {{ post.Time|time:"g:i A" }}</p>
+                <p class="card-text text-muted">{{ post.Date }} ({{ post.get_Day_display }}) from {{ post.TimeStart|time:"g:i A" }} to {{ post.TimeEnd|time:"g:i A" }}</p>
             </div>
         </div>
     {% endfor %}
