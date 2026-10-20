@@ -8,6 +8,6 @@
 
 ~~3. Date time replacement~~
 
-4. CSS
+~~4. CSS~~
 
-4. Django crsipy forms
+~~4. Django crsipy forms~~
