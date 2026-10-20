@@ -13,8 +13,8 @@
         const selected = [...subjectBoxes].filter(b => b.checked).map(b => b.value);
         courseBoxes.forEach(box => {
             const show = selected.some(s => box.value.startsWith(s) && /^\d/.test(box.value.slice(s.length)));
-            const label = box.closest('label') || box;
-            label.style.display = show ? '' : 'none';
+            const wrapper = box.closest('.form-check') || box.closest('label') || box;
+            wrapper.style.display = show ? '' : 'none';
             if (!show) box.checked = false;
         });
     }
