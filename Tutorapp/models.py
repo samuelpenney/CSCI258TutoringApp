@@ -22,11 +22,16 @@ class Post(models.Model):
         limit_choices_to={"is_ta": True},
     )
     Date = models.DateField(default=timezone.localdate)
-    Day = models.IntegerField(choices=Weekday.choices, default=Weekday.MONDAY)
+    Day = models.IntegerField(choices=Weekday.choices, editable=False)
     Time = models.TimeField(default=datetime.time(12, 0))
         
     def __str__(self):
         return self.Class
 
+    def save(self, *args, **kwargs):
+        if self.Date:
+            self.Day = self.Date.weekday()
+        super().save(*args, **kwargs)
+    
     def get_absolute_url(self):
         return reverse("post_detail", kwargs={"pk": self.pk})
