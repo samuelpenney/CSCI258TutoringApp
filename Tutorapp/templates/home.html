@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {%block content%}
     {% if user.is_authenticated %} 
         <form action="{% url 'logout' %}" method="post"> 
@@ -8,16 +8,22 @@
         <p style="text-align: right; color: red">^You are not logged in!</p>
     {% endif %} 
     {% for post in post_list %}
-        <div class="post-entry">
-        <h2><a href="{{post.get_absolute_url}}">{{ post.Class }}</a></h2>
-        <p>TA: {{ post.TA }}</p>
-        <p>{{ post.Date }} ({{ post.get_Day_display }}) at {{ post.Time|time:"g:i A" }}</p>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="card-title"><a href="{{post.get_absolute_url}}">{{ post.Class }}</a></h4>
+                <p class="card-text">TA: {{ post.TA }}</p>
+                <p class="card-text text-muted">{{ post.Date }} ({{ post.get_Day_display }}) at {{ post.Time|time:"g:i A" }}</p>
+            </div>
         </div>
     {% endfor %}
     <h3>Tutors</h3>
     <ul>
     {% for ta in tas %}
-        <li><a href="{% url 'tutor_detail' ta.pk %}">{{ ta.username }}</a></li>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title mb-0"><a href="{% url 'tutor_detail' ta.pk %}">TA: {{ ta.username }}</a></h5>
+            </div>
+        </div>
     {% empty %}
         <li>No TAs yet</li>
     {% endfor %}
